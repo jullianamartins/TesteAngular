@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="GEFIC" resourceRoot="" soapui-version="4.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="BasicHttpBinding_IIntegracao" type="wsdl" bindingName="{http://tempuri.org/}BasicHttpBinding_IIntegracao" soapVersion="1_1" anonymous="optional" definition="http://sp13:8181/Integracao.svc?singleWsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://sp13:8181/Integracao.svc?singleWsdl"><con:part><con:url>http://sp13:8181/Integracao.svc?singleWsdl</con:url><con:content><![CDATA[<wsdl:definitions name="Integracao" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS"/>
+      <xs:element name="CheckDiretorio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="repositorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="pathpasta" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckDiretorioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckDiretorioResult" nillable="true" type="q1:ObjRetornoDiretorio" xmlns:q1="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CriaPasta">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="repositorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="diretorio" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CriaPastaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CriaPastaResult" nillable="true" type="q2:ObjRetornoCriaDir" xmlns:q2="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExclueArquivo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="repositorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docId" type="xs:int"/>
+            <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExclueArquivoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ExclueArquivoResult" nillable="true" type="q3:ObjRetornoExclusao" xmlns:q3="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IncluirArquivo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="docRepositorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docDiretorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docUsuario" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docNomeArquivo" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docStream" nillable="true" type="xs:base64Binary"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IncluirArquivoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IncluirArquivoResult" nillable="true" type="q4:ObjRetornoInclusao" xmlns:q4="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AtualizarArquivo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="repositorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docDiretorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docUsuario" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docNomeArquivo" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docStream" nillable="true" type="xs:base64Binary"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AtualizarArquivoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AtualizarArquivoResult" nillable="true" type="q5:ObjRetornoInclusao" xmlns:q5="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PesquisarArquivo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="docRepositorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docId" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docVersao" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PesquisarArquivoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="PesquisarArquivoResult" nillable="true" type="q6:ArrayOfObjRetornoConsulta" xmlns:q6="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RecuperarArquivo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="repositorio" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="docId" type="xs:int"/>
+            <xs:element minOccurs="0" name="versao" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RecuperarArquivoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RecuperarArquivoResult" nillable="true" type="q7:ObjRetornoDownload" xmlns:q7="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+      <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+      <xs:element name="byte" nillable="true" type="xs:byte"/>
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+      <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+      <xs:element name="double" nillable="true" type="xs:double"/>
+      <xs:element name="float" nillable="true" type="xs:float"/>
+      <xs:element name="int" nillable="true" type="xs:int"/>
+      <xs:element name="long" nillable="true" type="xs:long"/>
+      <xs:element name="QName" nillable="true" type="xs:QName"/>
+      <xs:element name="short" nillable="true" type="xs:short"/>
+      <xs:element name="string" nillable="true" type="xs:string"/>
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+      <xs:element name="char" nillable="true" type="tns:char"/>
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int"/>
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration"/>
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid"/>
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName"/>
+      <xs:attribute name="Id" type="xs:ID"/>
+      <xs:attribute name="Ref" type="xs:IDREF"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Ifactory.CaixaSeguros.IntegracaoRSS">
+      <xs:complexType name="ObjRetornoDiretorio">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodRetorno" type="xs:int"/>
+          <xs:element minOccurs="0" name="DiretorioExiste" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ErrorDetails" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ObjRetornoDiretorio" nillable="true" type="tns:ObjRetornoDiretorio"/>
+      <xs:complexType name="ObjRetornoCriaDir">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodRetorno" type="xs:int"/>
+          <xs:element minOccurs="0" name="ErrorDetails" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ObjRetornoCriaDir" nillable="true" type="tns:ObjRetornoCriaDir"/>
+      <xs:complexType name="ObjRetornoExclusao">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodRetorno" type="xs:int"/>
+          <xs:element minOccurs="0" name="ErrorDetails" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ObjRetornoExclusao" nillable="true" type="tns:ObjRetornoExclusao"/>
+      <xs:complexType name="ObjRetornoInclusao">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodRetorno" type="xs:int"/>
+          <xs:element minOccurs="0" name="ErrorDetails" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IdArquivo" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="UrlArquivo" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="VersaoArquivo" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ObjRetornoInclusao" nillable="true" type="tns:ObjRetornoInclusao"/>
+      <xs:complexType name="ArrayOfObjRetornoConsulta">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ObjRetornoConsulta" nillable="true" type="tns:ObjRetornoConsulta"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfObjRetornoConsulta" nillable="true" type="tns:ArrayOfObjRetornoConsulta"/>
+      <xs:complexType name="ObjRetornoConsulta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodRetorno" type="xs:int"/>
+          <xs:element minOccurs="0" name="ErrorDetails" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IdArquivo" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="UrlArquivo" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="VersaoArquivo" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ObjRetornoConsulta" nillable="true" type="tns:ObjRetornoConsulta"/>
+      <xs:complexType name="ObjRetornoDownload">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Arquivo" nillable="true" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="CodRetorno" type="xs:int"/>
+          <xs:element minOccurs="0" name="DiretorioExiste" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ErrorDetails" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IdArquivo" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="UrlArquivo" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="VersaoArquivo" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ObjRetornoDownload" nillable="true" type="tns:ObjRetornoDownload"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IIntegracao_CheckDiretorio_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDiretorio"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_CheckDiretorio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDiretorioResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_CriaPasta_InputMessage">
+    <wsdl:part name="parameters" element="tns:CriaPasta"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_CriaPasta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CriaPastaResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_ExclueArquivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExclueArquivo"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_ExclueArquivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExclueArquivoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_IncluirArquivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:IncluirArquivo"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_IncluirArquivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IncluirArquivoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_AtualizarArquivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizarArquivo"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_AtualizarArquivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtualizarArquivoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_PesquisarArquivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PesquisarArquivo"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_PesquisarArquivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PesquisarArquivoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_RecuperarArquivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarArquivo"/>
+  </wsdl:message>
+  <wsdl:message name="IIntegracao_RecuperarArquivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarArquivoResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IIntegracao">
+    <wsdl:operation name="CheckDiretorio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntegracao/CheckDiretorio" message="tns:IIntegracao_CheckDiretorio_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntegracao/CheckDiretorioResponse" message="tns:IIntegracao_CheckDiretorio_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="CriaPasta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntegracao/CriaPasta" message="tns:IIntegracao_CriaPasta_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntegracao/CriaPastaResponse" message="tns:IIntegracao_CriaPasta_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ExclueArquivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntegracao/ExclueArquivo" message="tns:IIntegracao_ExclueArquivo_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntegracao/ExclueArquivoResponse" message="tns:IIntegracao_ExclueArquivo_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="IncluirArquivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntegracao/IncluirArquivo" message="tns:IIntegracao_IncluirArquivo_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntegracao/IncluirArquivoResponse" message="tns:IIntegracao_IncluirArquivo_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarArquivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntegracao/AtualizarArquivo" message="tns:IIntegracao_AtualizarArquivo_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntegracao/AtualizarArquivoResponse" message="tns:IIntegracao_AtualizarArquivo_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="PesquisarArquivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntegracao/PesquisarArquivo" message="tns:IIntegracao_PesquisarArquivo_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntegracao/PesquisarArquivoResponse" message="tns:IIntegracao_PesquisarArquivo_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarArquivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntegracao/RecuperarArquivo" message="tns:IIntegracao_RecuperarArquivo_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntegracao/RecuperarArquivoResponse" message="tns:IIntegracao_RecuperarArquivo_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IIntegracao" type="tns:IIntegracao">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CheckDiretorio">
+      <soap:operation soapAction="http://tempuri.org/IIntegracao/CheckDiretorio" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CriaPasta">
+      <soap:operation soapAction="http://tempuri.org/IIntegracao/CriaPasta" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExclueArquivo">
+      <soap:operation soapAction="http://tempuri.org/IIntegracao/ExclueArquivo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncluirArquivo">
+      <soap:operation soapAction="http://tempuri.org/IIntegracao/IncluirArquivo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarArquivo">
+      <soap:operation soapAction="http://tempuri.org/IIntegracao/AtualizarArquivo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PesquisarArquivo">
+      <soap:operation soapAction="http://tempuri.org/IIntegracao/PesquisarArquivo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarArquivo">
+      <soap:operation soapAction="http://tempuri.org/IIntegracao/RecuperarArquivo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Integracao">
+    <wsdl:port name="BasicHttpBinding_IIntegracao" binding="tns:BasicHttpBinding_IIntegracao">
+      <soap:address location="http://sp13:8181/Integracao.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://sp13:8181/Integracao.svc</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://tempuri.org/IIntegracao/CriaPasta" name="CriaPasta" bindingOperationName="CriaPasta" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sp13:8181/Integracao.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:CriaPasta>
+         </tem:CriaPasta>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IIntegracao/CriaPasta"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IIntegracao/ExclueArquivo" name="ExclueArquivo" bindingOperationName="ExclueArquivo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sp13:8181/Integracao.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ExclueArquivo>
+         </tem:ExclueArquivo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IIntegracao/ExclueArquivo"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IIntegracao/IncluirArquivo" name="IncluirArquivo" bindingOperationName="IncluirArquivo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sp13:8181/Integracao.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:IncluirArquivo>
+         </tem:IncluirArquivo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IIntegracao/IncluirArquivo"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IIntegracao/AtualizarArquivo" name="AtualizarArquivo" bindingOperationName="AtualizarArquivo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sp13:8181/Integracao.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AtualizarArquivo>
+         </tem:AtualizarArquivo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IIntegracao/AtualizarArquivo"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IIntegracao/RecuperarArquivo" name="RecuperarArquivo" bindingOperationName="RecuperarArquivo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://sp13:8181/Integracao.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:RecuperarArquivo>
+         </tem:RecuperarArquivo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IIntegracao/RecuperarArquivo"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IIntegracao/CheckDiretorio" name="CheckDiretorio" bindingOperationName="CheckDiretorio" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://sp13:8181/Integracao.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:CheckDiretorio>
+         </tem:CheckDiretorio>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IIntegracao/CheckDiretorio"/></con:call></con:operation><con:operation isOneWay="false" action="http://tempuri.org/IIntegracao/PesquisarArquivo" name="PesquisarArquivo" bindingOperationName="PesquisarArquivo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sp13:8181/Integracao.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:PesquisarArquivo>
+         <!--Optional:-->
+         <tem:docRepositorio></tem:docRepositorio>
+         <!--Optional:-->
+         <tem:docId></tem:docId>
+         <!--Optional:-->
+         <tem:docVersao></tem:docVersao>
+      </tem:PesquisarArquivo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IIntegracao/PesquisarArquivo"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
